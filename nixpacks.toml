@@ -1,0 +1,18 @@
+[phases.setup]
+aptPkgs = [
+    "cmake",
+    "g++",
+    "make",
+    "libfreetype6-dev",
+    "qtbase5-dev",
+    "libpng-dev",
+    "zlib1g-dev"
+]
+
+[phases.build]
+cmds = [
+    "mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Release .. && make -j$(nproc)"
+]
+
+[start]
+cmd = ""
