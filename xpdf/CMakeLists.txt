@@ -70,6 +70,7 @@ add_library(xpdf_objs OBJECT
   UnicodeMap.cc
   UnicodeRemapping.cc
   UnicodeTypeTable.cc
+  TextOutputDev.cc
   UTF8.cc
   XFAScanner.cc
   XRef.cc
@@ -78,8 +79,27 @@ add_library(xpdf_objs OBJECT
 set_property(TARGET xpdf_objs
              PROPERTY POSITION_INDEPENDENT_CODE True)
 
+# Create the main XPDF shared library
+add_library(xpdf SHARED
+    $<TARGET_OBJECTS:xpdf_objs>
+)
+
+target_link_libraries(xpdf
+    PRIVATE
+    fofi
+    goo
+)
+
+# Create your wrapper library and link it against xpdf
 add_library(xpdf_wrapper SHARED
     ffi.cc
+)
+
+target_link_libraries(xpdf_wrapper
+    PRIVATE
+    xpdf
+    fofi
+    goo
 )
 
 #--- object files needed by XpdfWidget

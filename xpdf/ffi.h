@@ -77,7 +77,7 @@ extern "C" {
 #endif
 
 // Your wrapper functions
-EXPORT const char* pdftotext(char* pdfPath);
+EXPORT const char* pdfToText(char* pdfPath);
 
 #ifdef __cplusplus
 }

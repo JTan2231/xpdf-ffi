@@ -132,7 +132,7 @@ static ArgDesc argDesc[] = {
 };
 
 extern "C" {
-  const char* pdftotext(char* pdfPath) {
+  const char* pdfToText(char* pdfPath) {
 #if USE_EXCEPTIONS
     try {
 #endif
