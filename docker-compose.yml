@@ -1,0 +1,9 @@
+version: '3'
+services:
+  builder:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/work
+      - ./output:/work/output

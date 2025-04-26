@@ -46,4 +46,10 @@ if (HAVE_SPLASH)
   add_library(splash
     $<TARGET_OBJECTS:splash_objs>
   )
+  target_link_libraries(splash 
+    PRIVATE 
+    goo 
+    fofi 
+    ${FREETYPE_LIBRARIES}  # Add this line
+  )
 endif ()
